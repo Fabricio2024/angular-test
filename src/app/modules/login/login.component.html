@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-card-title class="py-4">Login</mat-card-title>
+  <mat-card-subtitle class="mb-2">Angular Demo</mat-card-subtitle>
+
+  <mat-card-content [formGroup]="form" (ngSubmit)="submit()">
+    <form>
+      <div class="container">
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <input type="email" matInput placeholder="Email" formControlName="email"/>
+          
+            <mat-error *ngIf="form.controls['email']">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+            <input type="password" matInput placeholder="Password" formControlName="password"/>
+            <mat-error *ngIf="form.controls['password']">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </div>
+        <mat-error *ngIf="error !== ''">{{ error }}</mat-error>
+      </div>
+
+      <button type="submit" class="btn btn-success">Login</button>
+    </form>
+  </mat-card-content>
+
+  <mat-card-footer class="py-2">
+    user: &nbsp; <b>user@demo.com</b> &nbsp; pass: &nbsp; <b>123456</b>
+  </mat-card-footer>
+</mat-card>
